@@ -9,6 +9,7 @@ resources:
 - repo: self
 
 variables:
+  System.debug: true
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '0de607c6-9b20-4be8-8131-a76031d2f39a'
   imageRepository: 'kiamacompathy'
@@ -38,6 +39,7 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
 - stage: Deploy
   displayName: Deploy stage
   dependsOn: Build
