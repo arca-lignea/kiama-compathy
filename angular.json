@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "kiama-compathy:build:production"
+              "buildTarget": "kiama-compathy:build:production"
             },
             "development": {
-              "browserTarget": "kiama-compathy:build:development"
+              "buildTarget": "kiama-compathy:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kiama-compathy:build"
+            "buildTarget": "kiama-compathy:build"
           }
         },
         "test": {
