@@ -1,3 +1,17 @@
+<a class="navbar navbar-dark bg-primary" variant="dark" href="/">
+    <a class="navbar-brand"> Microsoft Identity Platform </a>
+    <a>
+        <button *ngIf="!loginDisplay" class="btn btn-secondary" (click)="login()">Sign In</button>
+        <button *ngIf="loginDisplay" class="btn btn-secondary" (click)="logout()">Sign Out</button>
+    </a>
+</a>
+<a class="profileButton">
+    <a [routerLink]="['profile']" class="btn btn-secondary" *ngIf="loginDisplay">View Profile</a> 
+</a>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
 
 15/7/25
 <br>
@@ -17,4 +31,4 @@ Chaos will get them.  </p>
 Chaos will crack them from the outside - with a falling branch, a speeding car, 
 a bullet - or unravel them from the inside, with the mutiny of their very own cells.  
 </p>
-<router-outlet></router-outlet>
+
