@@ -26,6 +26,7 @@ type ProfileType = {
 export class ProfileComponent implements OnInit {
   profile!: ProfileType;
   tokenExpiration!: string;
+  apiResult!: String;
 
   constructor(
     private http: HttpClient
@@ -36,7 +37,16 @@ export class ProfileComponent implements OnInit {
     this.http.get('https://graph.microsoft.com/v1.0/me')
       .subscribe(profile => {
         this.profile = profile;
+
+        this.http.get('https://compathyserverless.azurewebsites.net/api/httpexample?name=' + this.profile.displayName)
+          .subscribe(result => {
+            console.log(result);
+            this.apiResult = new String(result);
+        });
+
       });
+
+
 
     this.tokenExpiration = localStorage.getItem('tokenExpiration')!;
   }

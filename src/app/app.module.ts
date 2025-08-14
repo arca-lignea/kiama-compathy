@@ -40,6 +40,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
   protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read']);
+  protectedResourceMap.set('https://compathyserverless.azurewebsites.net/api/httpexample', 
+    ['api://2859f736-01ce-4a8f-9b7e-3196d3b5ad16/user_impersonation']);
 
   return {
     interactionType: InteractionType.Redirect,
@@ -52,7 +54,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   return { 
     interactionType: InteractionType.Redirect,
     authRequest: {
-      scopes: ['user.read']
+      scopes: ['user.read', 'api://2859f736-01ce-4a8f-9b7e-3196d3b5ad16/user_impersonation']
     }
   };
 }
